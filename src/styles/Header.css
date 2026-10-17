@@ -1,0 +1,239 @@
+.header,
+.header * {
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #e8edf5;
+  box-shadow: 0 2px 12px rgb(15 23 42 / 4%);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 80px;
+  margin: 0 auto;
+  padding: 16px 24px;
+}
+
+/* Logo */
+.header .brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 12px;
+  color: #172554;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.header .brand:visited {
+  color: #172554;
+}
+
+.brand__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  color: #fff;
+  background: #2563eb;
+  box-shadow: 0 5px 12px rgb(37 99 235 / 18%);
+  font-size: 27px;
+  font-weight: 800;
+}
+
+/* Menu */
+.header__nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.header__nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 9px;
+  color: #475569;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease;
+}
+
+.header__nav a:hover {
+  color: #2563eb;
+  background: #f1f5ff;
+}
+
+.header__nav a.active {
+  color: #1d4ed8;
+  background: #eff6ff;
+}
+
+/* Nút đăng nhập */
+.header .header__login {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-height: 42px;
+  margin-left: auto;
+  padding: 10px 24px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  color: #fff;
+  background: #2563eb;
+  box-shadow: 0 4px 10px rgb(37 99 235 / 15%);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.header .header__login:hover {
+  color: #fff;
+  background: #1d4ed8;
+  box-shadow: 0 5px 14px rgb(37 99 235 / 24%);
+}
+
+/* Tài khoản đã đăng nhập */
+.header__auth {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  margin-left: auto;
+}
+
+.header__username {
+  max-width: 150px;
+  overflow: hidden;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.header__logout {
+  flex-shrink: 0;
+  min-height: 40px;
+  padding: 9px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+  color: #475569;
+  background: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.header__logout:hover {
+  border-color: #fecaca;
+  color: #dc2626;
+  background: #fff1f2;
+}
+
+/* Khi dùng bàn phím */
+.header a:focus-visible,
+.header button:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 4px;
+}
+
+/* Tablet và điện thoại */
+@media (max-width: 768px) {
+  .header__inner {
+    flex-wrap: wrap;
+    gap: 16px;
+    min-height: auto;
+    padding: 16px 20px;
+  }
+
+  .header .brand {
+    font-size: 23px;
+  }
+
+  .brand__icon {
+    width: 40px;
+    height: 40px;
+    font-size: 25px;
+  }
+
+  .header__nav {
+    order: 3;
+    flex-wrap: nowrap;
+    gap: 6px;
+    width: 100%;
+    overflow-x: auto;
+    padding: 4px 0;
+  }
+
+  .header__nav a {
+    flex-shrink: 0;
+    padding: 9px 14px;
+    font-size: 14px;
+  }
+
+  .header__username {
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header__inner {
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .header__auth {
+    gap: 8px;
+  }
+
+  .header__username {
+    max-width: 80px;
+    font-size: 13px;
+  }
+
+  .header .header__login,
+  .header__logout {
+    padding: 9px 12px;
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header a,
+  .header button {
+    transition: none;
+  }
+}

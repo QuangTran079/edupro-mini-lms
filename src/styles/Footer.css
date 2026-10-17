@@ -1,0 +1,88 @@
+.footer,
+.footer * {
+  box-sizing: border-box;
+}
+
+.footer {
+  width: 100%;
+  margin-top: auto;
+  border-top: 1px solid #e8edf5;
+  background: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Logo */
+.footer .brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 10px;
+  color: #172554;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  line-height: 1;
+}
+
+.footer .brand__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  color: #fff;
+  background: #2563eb;
+  box-shadow: 0 4px 10px rgb(37 99 235 / 15%);
+  font-size: 23px;
+  font-weight: 800;
+}
+
+/* Bản quyền */
+.footer__inner p {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .footer__inner {
+    min-height: 90px;
+    padding: 24px 20px;
+  }
+
+  .footer .brand {
+    font-size: 20px;
+  }
+
+  .footer__inner p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer__inner {
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    padding: 28px 16px;
+  }
+
+  .footer__inner p {
+    text-align: center;
+  }
+}
