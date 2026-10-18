@@ -1,0 +1,136 @@
+import type { Course } from "../types/course";
+
+export const courses: Course[] = [
+  {
+    id: 1,
+    title: "Complete React Developer Course 2024",
+    description: "Master React.js from scratch with hands-on projects.",
+    thumbnail:
+      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format&fit=crop",
+    category: "Frontend",
+    instructor: "Sarah Wilson",
+    lessons: 42,
+    level: "Beginner",
+    durationHours: 24,
+    price: 89,
+  },
+  {
+    id: 2,
+    title: "Advanced Node.js & Microservices",
+    description: "Build scalable backend systems with Node.js and Kubernetes.",
+    thumbnail:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop",
+    category: "Backend",
+    instructor: "Mike Chen",
+    lessons: 35,
+    level: "Advanced",
+    durationHours: 30,
+    price: 99,
+  },
+  {
+    id: 3,
+    title: "UI/UX Design Masterclass",
+    description: "Design beautiful interfaces and user experiences.",
+    thumbnail:
+      "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&auto=format&fit=crop",
+    category: "Design",
+    instructor: "Jessica Lee",
+    lessons: 28,
+    level: "Intermediate",
+    durationHours: 18,
+    price: 79,
+  },
+  {
+    id: 4,
+    title: "DevOps Zero to Hero",
+    description: "Master CI/CD, Docker, Kubernetes, and AWS.",
+    thumbnail:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop",
+    category: "DevOps",
+    instructor: "David Miller",
+    lessons: 50,
+    level: "Intermediate",
+    durationHours: 36,
+    price: 129,
+  },
+  {
+    id: 5,
+    title: "JavaScript From Zero to Expert",
+    description: "Learn modern JavaScript through practical projects.",
+    thumbnail:
+      "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800&auto=format&fit=crop",
+    category: "Frontend",
+    instructor: "James Anderson",
+    lessons: 60,
+    level: "Beginner",
+    durationHours: 40,
+    price: 95,
+  },
+  {
+    id: 6,
+    title: "Python for Backend Development",
+    description: "Build powerful REST APIs with Python and Django.",
+    thumbnail:
+      "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=800&auto=format&fit=crop",
+    category: "Backend",
+    instructor: "Emily Brown",
+    lessons: 38,
+    level: "Intermediate",
+    durationHours: 28,
+    price: 89,
+  },
+  {
+    id: 7,
+    title: "Figma UI Design Essentials",
+    description:
+      "Create responsive layouts and interactive prototypes in Figma.",
+    thumbnail:
+      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&auto=format&fit=crop",
+    category: "Design",
+    instructor: "Olivia Taylor",
+    lessons: 32,
+    level: "Beginner",
+    durationHours: 20,
+    price: 69,
+  },
+  {
+    id: 8,
+    title: "AWS Cloud Deployment Bootcamp",
+    description: "Deploy and manage scalable applications on AWS.",
+    thumbnail:
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop",
+    category: "DevOps",
+    instructor: "Daniel Wilson",
+    lessons: 45,
+    level: "Advanced",
+    durationHours: 32,
+    price: 119,
+  },
+  {
+    id: 9,
+    title: "TypeScript and React in Practice",
+    description: "Build maintainable React applications with TypeScript.",
+    thumbnail:
+      "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&auto=format&fit=crop",
+    category: "Frontend",
+    instructor: "Sophia Martinez",
+    lessons: 36,
+    level: "Intermediate",
+    durationHours: 26,
+    price: 99,
+  },
+  {
+    id: 10,
+    title: "Java Spring Boot Masterclass",
+    description:
+      "Develop backend applications with Spring Boot and Spring Security.",
+    thumbnail:
+      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&auto=format&fit=crop",
+    category: "Backend",
+    instructor: "Robert Johnson",
+    lessons: 55,
+    level: "Advanced",
+    durationHours: 42,
+    price: 139,
+  },
+];

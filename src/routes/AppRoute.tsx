@@ -6,6 +6,7 @@ import CoursePage from "../pages/CoursePage";
 import LoginPage from "../pages/LoginPage";
 import DashboarLayout from "../layouts/DashboardLayout";
 import FavoritePage from "../pages/FavoritePage";
+import CourseDetailPage from "../pages/CourseDetailPage";
 
 function AppRoutes(){
     return (
@@ -13,7 +14,9 @@ function AppRoutes(){
             <Route path="/" element={<MainLayout />}>
                 <Route index element={<HomePage />} />
                 <Route path="courses" element={<CoursePage />} />
+                <Route path="courses/:courseId" element={<CourseDetailPage />} />
                 <Route path="login" element={<LoginPage />} />
+
 
                 <Route path="*" element={<NotFoundPage />} />
                 

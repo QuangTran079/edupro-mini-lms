@@ -1,0 +1,440 @@
+/* ===== DANH SÁCH KHÓA HỌC ===== */
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+
+/* ===== CARD ===== */
+
+.course-card {
+  position: relative;
+  height: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e8edf5;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgb(15 23 42 / 4%);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-6px);
+  border-color: #c7d2fe;
+  box-shadow: 0 16px 32px rgb(30 41 59 / 10%);
+}
+
+.course-card__link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.course-card__link:focus-visible {
+  outline: 3px solid #6366f1;
+  outline-offset: -3px;
+  border-radius: inherit;
+}
+
+/* ===== ẢNH VÀ NHÃN ===== */
+
+.course-card__image-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #eef2ff;
+}
+
+.course-card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.course-card:hover .course-card__image {
+  transform: scale(1.05);
+}
+
+.course-card__badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  max-width: calc(100% - 80px);
+  overflow: hidden;
+  padding: 6px 12px;
+  border: 1px solid rgb(255 255 255 / 65%);
+  border-radius: 8px;
+  color: #4338ca;
+  background: rgb(255 255 255 / 94%);
+  box-shadow: 0 2px 8px rgb(15 23 42 / 8%);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ===== NỘI DUNG ===== */
+
+.course-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 22px;
+}
+
+.course-card__title {
+  display: -webkit-box;
+  overflow: hidden;
+  min-height: 3em;
+  margin: 0 0 10px;
+  color: #182239;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.3px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.course-card__description {
+  display: -webkit-box;
+  flex: initial;
+  overflow: hidden;
+  min-height: 3.2em;
+  margin: 0 0 18px;
+  color: #758198;
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.course-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.course-card__meta span {
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: #f4f6fa;
+}
+
+.course-card__meta span:last-child {
+  color: #4f46e5;
+  background: #eef2ff;
+}
+
+.course-card__category {
+  align-self: flex-start;
+  margin: 0 0 20px;
+  color: #6366f1;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.course-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #edf1f7;
+}
+
+.course-card__instructor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  color: #526078;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.course-card__instructor > span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.course-card__avatar {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  color: #4f46e5;
+  background: linear-gradient(135deg, #e0e7ff, #ede9fe);
+  box-shadow: 0 0 0 1px #e8edf5;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.course-card__price {
+  flex-shrink: 0;
+  color: #4f46e5;
+  font-size: 19px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* ===== NÚT YÊU THÍCH ===== */
+
+.course-card__favorite {
+  position: absolute;
+  z-index: 1;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid rgb(255 255 255 / 75%);
+  border-radius: 50%;
+  color: #64748b;
+  background: rgb(255 255 255 / 95%);
+  box-shadow: 0 3px 10px rgb(15 23 42 / 12%);
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.course-card__favorite:hover {
+  transform: scale(1.1);
+  color: #f43f5e;
+  background: #fff1f2;
+}
+
+.course-card__favorite--active {
+  color: #f43f5e;
+  background: #fff1f2;
+  border-color: #fecdd3;
+}
+
+.course-card__favorite:active {
+  transform: scale(0.95);
+}
+
+/* ===== THANH CÔNG CỤ VÀ BỘ LỌC ===== */
+
+.courses-toolbar {
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.courses-heading h1,
+.courses-heading h2 {
+  margin: 12px 0 8px;
+  color: #182239;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+}
+
+.courses-heading p {
+  margin: 14px 0 4px; 
+  color: #758198;
+  line-height: 1.6;
+}
+
+.course-filters {
+  gap: 16px;
+  margin-bottom: 22px;
+  padding: 22px;
+  border: 1px solid #e8edf5;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgb(15 23 42 / 3%);
+}
+
+.course-filters__field label {
+  color: #526078;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.course-filters__field input,
+.course-filters__field select {
+  box-sizing: border-box;
+  min-height: 46px;
+  padding: 11px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  color: #182239;
+  background: #f8fafc;
+  font-size: 14px;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.course-filters__field input::placeholder {
+  color: #94a3b8;
+}
+
+.course-filters__field input:focus-visible,
+.course-filters__field select:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+  border-color: #818cf8;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgb(99 102 241 / 8%);
+}
+
+.course-filters__reset {
+  min-height: 46px;
+  padding: 11px 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  color: #526078;
+  background: #fff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.course-filters__reset:hover:not(:disabled) {
+  color: #4f46e5;
+  background: #eef2ff;
+}
+
+.courses-result-count {
+  margin-bottom: 22px;
+  color: #758198;
+  font-size: 13px;
+}
+
+/* ===== CÁC NÚT VÀ TRẠNG THÁI ===== */
+
+.courses-button {
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  background: #4f46e5;
+  box-shadow: 0 4px 10px rgb(79 70 229 / 18%);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.courses-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: #4338ca;
+}
+
+.course-empty,
+.course-data-state {
+  box-sizing: border-box;
+  min-height: 260px;
+  padding: 40px 24px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 18px;
+  color: #64748b;
+  background: #f8fafc;
+}
+
+.course-card__enrolled {
+  padding: 6px 10px;
+  border-radius: 7px;
+  color: #15803d;
+  background: #ecfdf5;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.course-card__favorite:focus-visible,
+.courses-button:focus-visible,
+.course-filters__reset:focus-visible {
+  outline: 3px solid #818cf8;
+  outline-offset: 3px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 1100px) {
+  .course-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .course-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .course-card__body {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 540px) {
+  .course-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .courses-toolbar {
+    align-items: stretch;
+  }
+
+  .course-filters {
+    padding: 16px;
+  }
+
+  .course-card__title {
+    font-size: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .course-card,
+  .course-card__image,
+  .course-card__favorite,
+  .courses-button {
+    transition: none;
+  }
+
+  .course-card:hover,
+  .course-card:hover .course-card__image,
+  .course-card__favorite:hover,
+  .courses-button:hover:not(:disabled) {
+    transform: none;
+  }
+}
