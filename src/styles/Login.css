@@ -1,0 +1,72 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.login-form__field label {
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.login-form__field input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  padding: 11px 14px;
+  border: 1px solid #dbe3ef;
+  border-radius: 7px;
+  background-color: #fff;
+  color: #0f172a;
+  font: inherit;
+  font-size: 14px;
+}
+
+.login-form__field input::placeholder {
+  color: #94a3b8;
+}
+
+.login-form__field input:focus {
+  border-color: #2563eb;
+  outline: 3px solid rgb(37 99 235 / 12%);
+}
+
+.login-form__error {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 7px;
+  background-color: #fef2f2;
+  color: #b91c1c;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.login-form__submit {
+  width: 100%;
+  min-height: 44px;
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 7px;
+  background-color: #2563eb;
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-form__submit:hover {
+  background-color: #1d4ed8;
+}
+
+.login-form__submit:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+}

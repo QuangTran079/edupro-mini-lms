@@ -5,7 +5,6 @@ import Header from "../ui/Header";
 function DashboardLayout() {
   return (
     <div className="site-layout">
-      <Header />
 
       <div className="dashboard-layout">
 

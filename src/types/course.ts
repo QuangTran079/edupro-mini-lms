@@ -17,18 +17,18 @@ export type Course = {
 
 export type CourseCardProps = {
   course: Course;
-  isFavorite?: boolean;
-  onToggleFavorite?: (courseId: number) => void;
+  // isFavorite?: boolean;
+  // onToggleFavorite?: (courseId: number) => void;
 }; 
 
 export type CourseGridProps = {
   courses: Course[];
-  favoriteIds?: number[];
-  onToggleFavorite?: (courseId: number) => void;
+  // favoriteIds?: number[];
+  // onToggleFavorite?: (courseId: number) => void;
 };
 
 export type CourseDetailProps = {
   course: Course;
-  isFavorite: boolean;
-  onToggleFavorite: (courseId: number) => void;
+  // isFavorite: boolean;
+  // onToggleFavorite: (courseId: number) => void;
 };
