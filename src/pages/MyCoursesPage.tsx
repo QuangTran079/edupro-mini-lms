@@ -1,35 +1,53 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "../features/auth/useAuth";
-import { enrollments } from "../datas/enrollments";
-import { courses } from "../datas/courses";
+
 import CourseGrid from "../components/organisms/CourseGrid";
+import { enrollments } from "../datas/enrollments";
+import { useAuth } from "../features/auth/useAuth";
+import { useCourses } from "../hooks/useCourses";
 
 function MyCoursesPage() {
   const { user } = useAuth();
+  const { courses, status, error, reload } = useCourses();
 
-  // Lấy email người đang đăng nhập
   const email = user?.email.trim().toLowerCase();
 
-  // Lấy danh sách ID khóa học của người đó
-  const enrolledIds = email ? (enrollments[email] ?? []) : [];
+  const enrolledIds = email ? enrollments[email] ?? [] : [];
 
-  // Tìm các object khóa học tương ứng
-  const myCourses = courses.filter((course) => enrolledIds.includes(course.id));
+  const myCourses = courses.filter((course) =>
+    enrolledIds.includes(course.id),
+  );
 
   return (
     <section className="my-courses">
       <h1>My Courses</h1>
       <p>Manage and continue your enrolled courses.</p>
 
-      {myCourses.length > 0 ? (
-        <CourseGrid courses={myCourses} />
-      ) : (
-        <div className="my-courses__empty">
-          <h2>No courses yet</h2>
-          <p>You haven’t enrolled in any courses yet.</p>
-          <Link to="/courses">Browse Courses</Link>
+      {(status === "idle" || status === "loading") && (
+        <div className="course-status" role="status">
+          Đang tải khóa học của bạn…
         </div>
       )}
+
+      {status === "failed" && (
+        <div className="course-status" role="alert">
+          <p>{error}</p>
+
+          <button type="button" onClick={() => reload()}>
+            Thử lại
+          </button>
+        </div>
+      )}
+
+      {status === "succeeded" &&
+        (myCourses.length > 0 ? (
+          <CourseGrid courses={myCourses} />
+        ) : (
+          <div className="my-courses__empty">
+            <h2>No courses yet</h2>
+            <p>You haven’t enrolled in any courses yet.</p>
+            <Link to="/courses">Browse Courses</Link>
+          </div>
+        ))}
     </section>
   );
 }

@@ -5,10 +5,12 @@ import {
   readStoredUser,
   saveStoredUser,
 } from "./features/auth/authStorage";
+import coursesReduce from "./features/courses/coursesSlice";
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
+    courses: coursesReduce,
   },
 
   preloadedState: {
