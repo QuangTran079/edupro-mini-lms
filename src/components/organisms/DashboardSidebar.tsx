@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 
-import { useAuth } from "../../contexts/auth/useAuth";
+import { useAuth } from "../../features/auth/useAuth";
 
 function DashboardSidebar() {
   const { user, logout } = useAuth();

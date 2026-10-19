@@ -1,7 +1,7 @@
 import { Navigate, useNavigate } from "react-router-dom";
 
 import LoginForm from "../components/organisms/LoginForm";
-import { useAuth } from "../contexts/auth/useAuth";
+import { useAuth } from "../features/auth/useAuth";
 
 function LoginPage() {
   const { login, isLoggedIn } = useAuth();
@@ -19,7 +19,6 @@ function LoginPage() {
   return (
     <section className="login-page">
       <div className="login-page__heading">
-
         <h1>Welcome back</h1>
         <p>Sign in to access your courses and dashboard.</p>
       </div>

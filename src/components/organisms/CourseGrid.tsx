@@ -3,8 +3,8 @@ import CourseCard from "../molecules/CourseCard";
 
 function CourseGrid({
   courses,
-  favoriteIds = [],
-  onToggleFavorite,
+  // favoriteIds = [],
+  // onToggleFavorite,
 }: CourseGridProps) {
   if (courses.length === 0) {
     return (

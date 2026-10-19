@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 
 function CourseDetail({
   course,
-  isFavorite,
-  onToggleFavorite,
 }: CourseDetailProps) {
   const {
     title,
@@ -87,10 +85,9 @@ function CourseDetail({
           <button
             type="button"
             className="course-detail__favorite"
-            aria-pressed={isFavorite}
-            onClick={() => onToggleFavorite(course.id)}
+           
           >
-            {isFavorite ? "♥ Đã yêu thích" : "♡ Thêm vào yêu thích"}
+            {"♡ Thêm vào yêu thích"}
           </button>
 
           <strong className="course-detail__price">${price}</strong>
