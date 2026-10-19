@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "../contexts/auth/useAuth";
+import { useAuth } from "../features/auth/useAuth";
 import { likes } from "../datas/enrollments";
 import { courses } from "../datas/courses";
 import CourseGrid from "../components/organisms/CourseGrid";
-
-
 
 function MyCoursesPage() {
   const { user } = useAuth();
@@ -13,12 +11,10 @@ function MyCoursesPage() {
   const email = user?.email.trim().toLowerCase();
 
   // Lấy danh sách ID khóa học của người đó
-  const likeIds = email ? likes[email] ?? [] : [];
+  const likeIds = email ? (likes[email] ?? []) : [];
 
   // Tìm các object khóa học tương ứng
-  const myCourses = courses.filter((course) =>
-    likeIds.includes(course.id),
-  );
+  const myCourses = courses.filter((course) => likeIds.includes(course.id));
 
   return (
     <section className="my-courses">

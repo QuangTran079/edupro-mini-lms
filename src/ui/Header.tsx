@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/auth/useAuth";
+import { useAuth } from "../features/auth/useAuth";
 
 function Header() {
   const { user, isLoggedIn, logout } = useAuth();
@@ -41,8 +41,6 @@ function Header() {
             Log In
           </NavLink>
         )}
-
-        
       </div>
     </header>
   );
