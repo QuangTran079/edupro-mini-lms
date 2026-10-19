@@ -1,6 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/auth/useAuth";
 
 function Header() {
+  const { user, isLoggedIn, logout } = useAuth();
+  const navigate = useNavigate();
+  function handleLogout() {
+    logout();
+    navigate("/login", { replace: true });
+  }
   return (
     <header className="header">
       <div className="header__inner">
@@ -14,12 +21,26 @@ function Header() {
             Home
           </NavLink>
           <NavLink to="/courses">Courses</NavLink>
-          <NavLink to="/favorites">Favorites</NavLink>
+          <NavLink to="dashboard/favorites">Favorites</NavLink>
         </nav>
 
-        <nav className="header__auth">
-            <button>Login</button>
-        </nav>
+        {isLoggedIn ? (
+          <div className="header__auth">
+            <span className="header__username">{user?.name}</span>
+
+            <button
+              type="button"
+              className="header__logout"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+          </div>
+        ) : (
+          <NavLink to="/login" className="header__login">
+            Log In
+          </NavLink>
+        )}
 
         
       </div>
