@@ -49,11 +49,12 @@ Dùng một trong các email sau với mật khẩu từ 6 ký tự:
 
 | Email | Khóa học đã tham gia |
 |---|---:|
-| student@example.com | 4 |
-| quang@example.com | 2 |
+| huy@gmail.com |  |
+| test@gmail.com |  |
 
 Email hợp lệ khác vẫn đăng nhập được nhưng chưa có khóa học
 trong dữ liệu mock.
+password có thể là bất kỳ chuỗi nào từ 6 ký tự trở lên.
 
 ## Cấu trúc chính
 
@@ -89,3 +90,4 @@ sang Redux trong task MEX1.60.
 
 Các nút giả lập lỗi và danh sách rỗng chỉ xuất hiện ở development.
 ## deploy vecel
+https://edupro-mini-lms.vercel.app/
