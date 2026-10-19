@@ -1,30 +1,62 @@
 import { useState } from "react";
 import type { ReactNode } from "react";
+
 import type { AuthUser } from "../../types/auth";
 import { AuthContext } from "./authContext";
-
 
 type AuthProviderProps = {
   children: ReactNode;
 };
 
-function AuthProvider({ children }: AuthProviderProps) {
-  // 1. Lưu người dùng hiện tại
-  const [user, setUser] = useState<AuthUser | null>(null);
+const STORAGE_KEY = "edupro-user";
 
-  // 2. Tính trạng thái đăng nhập
-  const isLoggedIn = user !== null;
+function readStoredUser(): AuthUser | null {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
 
-  // 3. Đăng nhập
-  function login(email: string) {
-  setUser({
-    email,
-    name: email.split("@")[0],
-  });
+    if (!stored) {
+      return null;
+    }
+
+    const data: unknown = JSON.parse(stored);
+
+    if (
+      typeof data === "object" &&
+      data !== null &&
+      "email" in data &&
+      "name" in data &&
+      typeof data.email === "string" &&
+      typeof data.name === "string"
+    ) {
+      return {
+        email: data.email,
+        name: data.name,
+      };
+    }
+
+    return null;
+  } catch {
+    return null;
+  }
 }
 
-  // 4. Đăng xuất
+function AuthProvider({ children }: AuthProviderProps) {
+  const [user, setUser] = useState<AuthUser | null>(readStoredUser);
+
+  const isLoggedIn = user !== null;
+
+  function login(email: string) {
+    const nextUser: AuthUser = {
+      email,
+      name: email.split("@")[0],
+    };
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(nextUser));
+    setUser(nextUser);
+  }
+
   function logout() {
+    localStorage.removeItem(STORAGE_KEY);
     setUser(null);
   }
 

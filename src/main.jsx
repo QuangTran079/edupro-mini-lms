@@ -13,6 +13,7 @@ import "./styles/Course.css"
 import "./styles/CourseDetail.css"
 import "./styles/Home.css"
 import "./styles/Login.css"
+import "./styles/Dashboard.css"
 
 
 createRoot(document.getElementById("root")).render(
